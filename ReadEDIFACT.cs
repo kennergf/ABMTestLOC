@@ -16,8 +16,7 @@ namespace ABMTestLOC
         {
             var result = new List<string>();
             //Make sure the segment are clean before work on it
-            _EDIFACTData =_EDIFACTData.Replace("\r", "");
-            _EDIFACTData =_EDIFACTData.Replace("\n", "");
+            Utils.ClearNewLine(ref _EDIFACTData);
             var segments =_EDIFACTData.Split("'");
             segments = segments.Where(segment => segment.StartsWith("LOC")).ToArray();
             foreach (var segment in segments)
